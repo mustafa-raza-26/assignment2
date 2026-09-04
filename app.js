@@ -96,3 +96,24 @@ if (
 
 document.write(`Your age is: ${age}<br>`);
 document.write(`Your Birth year is: ${year}`);
+
+// Q14
+let customerName = prompt("Enter Customer Name:");
+let units = +prompt("Enter Number of Units:");
+let chargesPerUnit = +prompt("Enter Charges per Unit:");
+let lateSurcharge = +prompt("Enter Late Payment Surcharge:");
+
+let month1 = new Date().toLocaleString("default", { month1: "long" });
+
+let netAmount = units * chargesPerUnit;
+let grossAmount = netAmount + lateSurcharge;
+
+document.write("<h1>K-Electric Bill</h1>");
+document.write("Customer Name: <b>" + customerName + "</b><br>");
+document.write("Month1: <b>" + month1 + "</b><br>");
+document.write("Number of units: <b>" + units + "</b><br>");
+document.write("Charges per unit: <b>" + chargesPerUnit + "</b><br><br>");
+
+document.write("Net Amount Payable (within Due Date): <b>" + netAmount.toFixed(2) + "</b><br>");
+document.write("Late Payment Surcharge: <b>" + lateSurcharge.toFixed(2) + "</b><br>");
+document.write("Gross Amount Payable (after Due Date): <b>" + grossAmount.toFixed(2) + "</b>");
