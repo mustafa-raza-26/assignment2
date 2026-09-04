@@ -3,10 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Date</title>
+    <title>Date Assignment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .bill-container {
+            width: 500px;
+            margin: auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .bill-container h1 {
+            text-align: center;
+            color: #00843d;
+            margin-bottom: 25px;
+        }
+
+        .bill-info p,
+        .amount p {
+            font-size: 16px;
+            padding: 8px 0;
+            margin: 0;
+        }
+
+        .bill-info b,
+        .amount b {
+            color: #333;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 20px 0;
+        }
+
+        .amount {
+            background-color: #f7f7f7;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .amount p:last-child {
+            background-color: #00843d;
+            color: white;
+            padding: 12px;
+            border-radius: 5px;
+        }
+
+        .amount p:last-child b {
+            color: white;
+        }
+
+        button{
+            padding: 12px 25px;
+            margin-bottom: 20px;
+            border: 1px solid #010c27;
+            border-radius: 20px;
+            font-size: 20px;
+            color: #fff;
+            background-color: #010c27;
+        }
+    </style>
 </head>
 <body>
     
+    <button onclick="generateBill()">Generate Bill</button>
+    <div id="bill"></div>
 
     <script src="app.js"></script>
 </body>

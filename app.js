@@ -98,22 +98,47 @@ document.write(`Your age is: ${age}<br>`);
 document.write(`Your Birth year is: ${year}`);
 
 // Q14
-let customerName = prompt("Enter Customer Name:");
-let units = +prompt("Enter Number of Units:");
-let chargesPerUnit = +prompt("Enter Charges per Unit:");
-let lateSurcharge = +prompt("Enter Late Payment Surcharge:");
+let display = document.getElementById('bill');
 
-let month1 = new Date().toLocaleString("default", { month1: "long" });
+function generateBill() {
+    let customerName = prompt("Enter Customer Name:");
+    let units = +prompt("Enter Number of Units:");
+    let chargesPerUnit = +prompt("Enter Charges per Unit:");
+    let lateSurcharge = +prompt("Enter Late Payment Surcharge:");
 
-let netAmount = units * chargesPerUnit;
-let grossAmount = netAmount + lateSurcharge;
+    let month1 = new Date().toLocaleString("default", { month1: "long" });
 
-document.write("<h1>K-Electric Bill</h1>");
-document.write("Customer Name: <b>" + customerName + "</b><br>");
-document.write("Month1: <b>" + month1 + "</b><br>");
-document.write("Number of units: <b>" + units + "</b><br>");
-document.write("Charges per unit: <b>" + chargesPerUnit + "</b><br><br>");
+    let netAmount = units * chargesPerUnit;
+    let grossAmount = netAmount + lateSurcharge;
 
-document.write("Net Amount Payable (within Due Date): <b>" + netAmount.toFixed(2) + "</b><br>");
-document.write("Late Payment Surcharge: <b>" + lateSurcharge.toFixed(2) + "</b><br>");
-document.write("Gross Amount Payable (after Due Date): <b>" + grossAmount.toFixed(2) + "</b>");
+    if (display) {
+        display.innerHTML = `
+            <div class="bill-container">
+                <h1>K-Electric Bill</h1>
+
+                <div class="bill-info">
+                    <p>Customer Name: <b>${customerName}</b></p>
+                    <p>Month: <b>${month1}</b></p>
+                    <p>Number of Units: <b>${units}</b></p>
+                    <p>Charges per Unit: <b>${chargesPerUnit}</b></p>
+                </div>
+
+                <hr>
+
+                <div class="amount">
+                    <p>Net Amount Payable: 
+                        <b>${netAmount.toFixed(2)}</b>
+                    </p>
+
+                    <p>Late Payment Surcharge: 
+                        <b>${lateSurcharge.toFixed(2)}</b>
+                    </p>
+
+                    <p>Gross Amount Payable: 
+                        <b>${grossAmount.toFixed(2)}</b>
+                    </p>
+                </div>
+            </div>
+        `;
+    }
+}
